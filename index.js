@@ -89,7 +89,7 @@
 
 // store.dispatch(incremented())
 
-const createStore = require("redux");
+const {createStore} = require("redux");
 
 // CONSTATNS
 const INCREMENT = "INCREMENT";
@@ -130,10 +130,9 @@ const reducers = (state = initialState, action) => {
   }
 };
 
-const state = createStore(reducers);
+const store = createStore(reducers);
 
-store.subscribe(() => {
-  console.log(`value is ${store.getState()}`);
-});
+store.subscribe(() => console.log(store.getState()));
 
-store.dispatch();
+store.dispatch(incrementAction());
+store.dispatch(decrementAction());
